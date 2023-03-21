@@ -64,7 +64,7 @@ async def get_todos(request: Request):
     Returns:
         _type_: _description_
     """
-    # auth.verify_jwt(request)
+    auth.verify_jwt(request)
     res = await db_get_todos()
     return res
 
