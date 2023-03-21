@@ -1,6 +1,5 @@
 from fastapi_csrf_protect import CsrfProtect
 from fastapi_csrf_protect.exceptions import CsrfProtectError
-from mangum import Mangum
 from routers import route_auth, route_todo
 from schemas import CsrfSettings, SuccessMsg
 
@@ -34,6 +33,3 @@ def csrf_protect_exception_handler(request: Request, exc: CsrfProtectError):
 @app.get("/", response_model=SuccessMsg)
 def root():
     return {"message": "Welcome to Fast API"}
-
-
-handler = Mangum(app)
